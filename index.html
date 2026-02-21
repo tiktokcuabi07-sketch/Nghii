@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>💖 Nghi ơi... 💖</title>
+  <style>
+    body {
+      margin:0; height:100vh;
+      background: linear-gradient(to bottom, #ffebee, #fce4ec);
+      font-family: sans-serif;
+      display:flex; align-items:center; justify-content:center;
+      overflow:hidden; color:#333;
+    }
+    .hearts { position:absolute; inset:0; pointer-events:none; }
+    .heart {
+      position:absolute; font-size:2.5rem;
+      animation: float 7s linear infinite;
+      opacity:0.9;
+    }
+    @keyframes float {
+      0% { transform:translateY(100vh) rotate(0deg); }
+      100% { transform:translateY(-180px) rotate(720deg); }
+    }
+    .container {
+      text-align:center; background:rgba(255,255,255,0.92);
+      padding:2.5rem; border-radius:25px;
+      box-shadow:0 10px 35px rgba(233,30,99,0.3);
+      max-width:90%; z-index:10;
+      animation: fadeIn 1.8s ease;
+    }
+    @keyframes fadeIn { from {opacity:0; transform:scale(0.85);} to {opacity:1; transform:scale(1);} }
+    h1 { color:#e91e63; font-size:3.2rem; margin-bottom:1rem; }
+    p { font-size:1.4rem; margin:1rem 0; line-height:1.6; }
+    .highlight { color:#c2185b; font-weight:bold; font-size:1.7rem; }
+    button {
+      padding:1rem 3rem; font-size:1.5rem; margin-top:1.5rem;
+      background:#e91e63; color:white; border:none;
+      border-radius:50px; cursor:pointer; transition:all 0.3s;
+    }
+    button:hover { background:#ad1457; transform:scale(1.08); }
+    #yes { display:none; font-size:2.2rem; color:#7b1fa2; margin-top:2rem; animation:pulse 2s infinite; }
+    @keyframes pulse { 0%,100% {transform:scale(1);} 50% {transform:scale(1.08);} }
+  </style>
+</head>
+<body>
+
+<div class="hearts" id="hearts"></div>
+
+<div class="container">
+  <h1>Nghi ơi... ❤️</h1>
+  <p>Anh nghĩ mãi rồi nha...</p>
+  <p class="highlight">Anh thích Nghi nhiều lắm luôn á! 🥺💕</p>
+  <p>Nghi cười là anh vui, Nghi nhắn tin là anh cười toe, Nghi im lặng là anh lo... kiểu vậy đó.</p>
+  
+  <button onclick="sayYes()">Nghi làm ny anh nha?</button>
+  
+  <div id="yes">Yeahhh! Nghi đồng ý rồi nè\~ 🥰<br>Anh yêu Nghi nhất trên đời luôn á! 😘</div>
+</div>
+
+<script>
+  function createHeart() {
+    const h = document.createElement('div');
+    h.className = 'heart';
+    h.innerHTML = Math.random() > 0.5 ? '❤️' : '💗';
+    h.style.left = Math.random()*100 + 'vw';
+    document.getElementById('hearts').appendChild(h);
+    setTimeout(() => h.remove(), 12000);
+  }
+  setInterval(createHeart, 350);
+
+  function sayYes() {
+    document.getElementById('yes').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>h.classNameh.style.lefth.innerHTML
